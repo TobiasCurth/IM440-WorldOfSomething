@@ -24,6 +24,7 @@
     <orderEntry type="library" name="Messenger_With_Source" level="project" />
     <orderEntry type="library" name="src" level="project" />
     <orderEntry type="library" name="src (2)" level="project" />
+    <orderEntry type="library" name="Gameloop_1.2.0" level="project" />
   </component>
 </module>
 
