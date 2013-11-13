@@ -1,4 +1,4 @@
-package gamearchitecture.test;
+package junit.coredata.test;
 
 import at.fhooe.im440.ladar.coredata.*;
 import at.fhooe.im440.ladar.util.Loader;

@@ -1,10 +1,7 @@
 package gamearchitecture.engine;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import at.fhooe.im440.ladar.coredata.*;
 
@@ -95,12 +92,6 @@ public class MyCoreDataObject implements CoreDataObject, Serializable {
     */
 
     @Override
-    public CoreDataObject setAttribute(String id, Attribute attr) {
-        attributes.put(id, attr);
-        return this;
-    }
-
-    @Override
     public Attribute getAttribute(String id) throws CoreDataException {
         if (attributes.get(id) == null)
             throw new CoreDataException();
@@ -109,12 +100,21 @@ public class MyCoreDataObject implements CoreDataObject, Serializable {
     }
 
     @Override
+    public CoreDataObject setAttribute(String id, Attribute attr) {
+        attributes.put(id, attr);
+        return this;
+    }
+
+    @Override
     public String getAttribute(int index) throws IndexOutOfBoundsException {
+
         List<Attribute> l = new ArrayList<>(attributes.values());
         Attribute a = l.get(index);
-        //if (a != null) return l.get(index).;
-        return null;
-        // Todo: return key!
+
+        Set<String> keys = attributes.keySet();
+        for (String key : keys)
+            if (attributes.get(key).equals(a))
+                return key;
 
         throw new CoreDataException();
     }
